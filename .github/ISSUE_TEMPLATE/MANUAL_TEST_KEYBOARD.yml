@@ -8,8 +8,8 @@ body:
     attributes:
       label: Component location
       description: A URL to the canonical version of the component in the design system.
-      validations:
-        required: false
+    validations:
+      required: false
   - type: dropdown
     id: no-missed-focus
     attributes:
