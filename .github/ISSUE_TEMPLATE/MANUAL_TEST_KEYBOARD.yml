@@ -1,0 +1,75 @@
+name: Manual Component Test (Keyboard)
+description: Navigate the component using the keyboard (`Tab` to move to the next focusable element; `Shift` + `Tab` to move to the previous one). For each press of the `Tab` key, ensure the following:
+title: "[Component Name]"
+labels: ["accessibility", "test", "keyboard"]
+body:
+  - type: dropdown
+    id: no-missed-focus
+    attributes:
+      label: No missed focus
+      description: No elements interactive by other means (like a mouse) are stepped over.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: no-unneeded-focus
+    attributes:
+      label: No unneeded focus
+      description: No elements that are not intended to be interactive can be focused.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: no-dead-focus
+    attributes:
+      label: No dead focus
+      description: No elements should be interactive do nothing when activated (Enter and/or Space activation as appropriate).
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: no-invisible-focus
+    attributes:
+      label: No invisible focus
+      description: All visible and focusable controls indicate when they are focused (have a :focus CSS style).
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: no-invisible-controls
+    attributes:
+      label: No invisible controls
+      description: No controls that receive focus are hidden from view.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: no-trapped-focus
+    attributes:
+      label: No trapped focus
+      description: It is possible to move focus outside the component, in both directions, at all times.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: no-illogical-order
+    attributes:
+      label: No illogical order
+      description: Elements receive focus in an order that corresponds logically to their visual position within the component.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
