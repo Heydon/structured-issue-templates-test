@@ -1,5 +1,5 @@
 name: Manual Component Test (Keyboard)
-description: Navigate the component using the keyboard (Tab to move to the next focusable element; Shift + Tab to move to the previous one). For each press of the Tab key, ensure the following:
+description: Navigate the component using the keyboard (Tab to move to the next focusable element; Shift + Tab to move to the previous one). For each press of the Tab key, ensure the following are true.
 title: "[Component Name]"
 labels: ["accessibility", "test", "keyboard"]
 body:
