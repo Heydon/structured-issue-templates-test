@@ -1,5 +1,5 @@
 name: Manual Component Test (Keyboard)
-description: Navigate the component using the keyboard (Tab to move to the next focusable element; Shift + Tab to move to the previous one). For each press of the Tab key, ensure the following criteria are true.
+description: Script for testing the keyboard accessibility of an individual component.
 title: "[Component Name] Keyboard Test"
 labels: ["accessibility", "test", "keyboard"]
 body: 
@@ -10,71 +10,108 @@ body:
       description: A URL to the canonical version of the component in the design system.
     validations:
       required: false
+  - type: markdown
+    attributes:
+      value: |
+        **Instructions:** Navigate the component using the keyboard (Tab to move to the next focusable element; Shift + Tab to move to the previous one). For each press of the Tab key, ensure the following criteria are true.
+
+        ## No missed focus
+
+        No elements interactive by other means (like a mouse/pointer) are stepped over.
   - type: dropdown
     id: no-missed-focus
     attributes:
-      label: No missed focus
-      description: No elements interactive by other means (like a mouse) are stepped over.
+      label: Result
       options:
         - Passed
         - Failed
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## No unneeded focus
+
+        No elements that are not intended to be interactive can be focused. 
   - type: dropdown
     id: no-unneeded-focus
     attributes:
-      label: No unneeded focus
-      description: No elements that are not intended to be interactive can be focused.
+      label: Result
       options:
         - Passed
         - Failed
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## No dead focus
+
+        No elements that _should_ be interactive do nothing when activated (Enter and/or Space activation as appropriate).
   - type: dropdown
     id: no-dead-focus
     attributes:
-      label: No dead focus
-      description: No elements should be interactive do nothing when activated (Enter and/or Space activation as appropriate).
+      label: Result
       options:
         - Passed
         - Failed
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## No invisible focus
+
+        All visible and focusable controls indicate when they are focused (have a `:focus` CSS style).
   - type: dropdown
     id: no-invisible-focus
     attributes:
-      label: No invisible focus
-      description: All visible and focusable controls indicate when they are focused (have a :focus CSS style).
+      label: Result
       options:
         - Passed
         - Failed
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## No invisible controls
+
+        No controls that receive focus are hidden from view. This includes elements for which the `:focus` style is visible but nothing else.
   - type: dropdown
     id: no-invisible-controls
     attributes:
-      label: No invisible controls
-      description: No controls that receive focus are hidden from view.
+      label: Result
       options:
         - Passed
         - Failed
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## No trapped focus
+
+        It is possible to move focus outside the component, in both directions, and at all times.
   - type: dropdown
     id: no-trapped-focus
     attributes:
-      label: No trapped focus
-      description: It is possible to move focus outside the component, in both directions, at all times.
+      label: Result
       options:
         - Passed
         - Failed
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## No illogical order
+
+        Elements receive focus in an order that corresponds logically to their visual position within the component.
   - type: dropdown
     id: no-illogical-order
     attributes:
-      label: No illogical order
-      description: Elements receive focus in an order that corresponds logically to their visual position within the component.
+      label: Result
       options:
         - Passed
         - Failed
