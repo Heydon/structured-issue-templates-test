@@ -81,7 +81,7 @@ body:
     id: Notes
     attributes:
       label: Notes
-      placeholder: Mitigating circumstances, remediation ideas, etc.
+      description: Mitigating circumstances, remediation plans, etc.
       options:
         - Passed
         - Failed
