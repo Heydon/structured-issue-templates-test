@@ -1,0 +1,72 @@
+name: Manual Component Test (Magnification)
+description: Script for testing the magnification/zoom accessibility of an individual component.
+title: "[Component Name] Magnification Test"
+labels: ["accessibility", "test", "magnification"]
+body: 
+  - type: input
+    id: url
+    attributes:
+      label: Component location
+      description: A URL to the canonical version of the component in the design system.
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        **Instructions:** There are three tests to carry out:
+        1. **Full page zoom**: For example, in Chrome, **View > Zoom** (or **Command/CTRL** and **+** by keyboard) to the maximum level. Alternatively, create a viewport that is `320px` wide.
+        1. **Full page zoom**: For example, in Chrome, **View > Zoom** (or **Command/CTRL** and **+** by keyboard) to the maximum level. Alternatively, create a viewport that is `320px` wide.
+        2. **Font default size**: For example, in Firefox, up the font size under **Preferences > General > Font**.
+        3. **Pinch zoom**: Zoom using the pinch gesture on a touchscreen device.
+  - type: dropdown
+    id: no-bidirectional-scroll
+    attributes:
+      label: After zooming using full-page zoom (CTRL/CMD and +), it is not possible to scroll any part of the component in vertical and horizontal directions simultaneously.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: nothing-obscured
+    attributes:
+      label: After zooming using full-page zoom (CTRL/CMD and +), no previously visible content is partially or fully obscured with no way to reveal it.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: consistent-line-height
+    attributes:
+      label: When increasing the default font size (for example, by adjusting Preferences > General > Font in Firefox), the line height remains similarly proportionate to the font size.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: reasonable-measure
+    attributes:
+      label: When zooming out using any method, the measure (line length) does not exceed 80 characters.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: pinch-enabled
+    attributes:
+      label: Pinch zoom is not suppressed (where testing by mobile is inconvenient, simply look for user-scalable=no in the viewport meta tag).
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: textarea
+    id: Notes
+    attributes:
+      label: Notes
+      description: Mitigating circumstances, remediation plans, etc.
+    validations:
+      required: true  

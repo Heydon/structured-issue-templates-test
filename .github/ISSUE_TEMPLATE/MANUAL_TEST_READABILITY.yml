@@ -1,0 +1,68 @@
+name: Manual Component Test (Readability)
+description: Script for testing the magnification/zoom accessibility of an individual component.
+title: "[Component Name] Readability Test"
+labels: ["accessibility", "test", "readability"]
+body: 
+  - type: input
+    id: url
+    attributes:
+      label: Component location
+      description: A URL to the canonical version of the component in the design system.
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        Automated accessibility testing cannot tell you if writing is any good (no, not even using AI). Which means you need to assess you labels and descriptions manually. Good writing is subjective; there’s no right or wrong, but there is better or worse.
+  - type: dropdown
+    id: no-unsuitable-alts
+    attributes: 
+      label: Ensure each image’s alternative text fits the purpose of the image. Use the alt decision tree (https://www.w3.org/WAI/tutorials/images/decision-tree/) wherever unsure.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: no-unhelpful-errors
+    attributes:
+      label: Make sure each error message actually helps the user overcome the error. Use instructions and examples as appropriate.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: headings-describe-sections
+    attributes:
+      label: Headings are labels for the sections they introduce. Ensure they adequately set out what is to follow. 
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: descriptive-links-controls
+    attributes:
+      label: All the links in the component need to adequately describe where they will take you. Buttons and other controls should adequately describe what they do.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: descriptive-field-labels
+    attributes:
+      label: Form fields have descriptive labels, helping users to avoid errors, supplemented by help text where it assists comprehension.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: textarea
+    id: Notes
+    attributes:
+      label: Notes
+      description: Mitigating circumstances, remediation plans, etc.
+    validations:
+      required: true  

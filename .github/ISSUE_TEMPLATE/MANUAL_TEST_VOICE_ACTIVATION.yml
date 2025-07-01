@@ -1,0 +1,95 @@
+name: Manual Component Test (Voice Activation)
+description: Script for testing the magnification/zoom accessibility of an individual component.
+title: "[Component Name] Voice Activation Test"
+labels: ["accessibility", "test", "voice"]
+body: 
+  - type: input
+    id: url
+    attributes:
+      label: Component location
+      description: A URL to the canonical version of the component in the design system.
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        The following instructions are for testing with Apple’s **Voice Control**. Other voice activation software is available…
+
+        Switch **Voice Control** on by going to **System Preferences > Accessibility > Voice Control**. You must test in the Safari browser otherwise you will experience some compatibility issues.
+
+        Common commands, useful for some of the following test procedures:
+
+        - "select all" - highlights everything inside the field
+        - "select [word]" - highlights a specified word
+        - "uppercase selected" - converts highlighted to uppercase
+        - "lowercase selected" - converts highlighted to lowercase
+        - "capitalise selected" - converts highlighted to title case
+        - "deselect that" - deselects any highlighted text
+        - "delete selected" - deletes any highlighted text
+        - "undo that" - undoes the last action
+        - "move left" - move the cursor one character to the left
+        - "move right" - move the cursor one character to the right
+        - "at sign" - input an at (@) symbol
+        - "full stop" - input a full stop (.) symbol
+        - "numeral [number]" - forces Voice Control to input a number
+  - type: dropdown
+    id: selectable-by-label
+    attributes: 
+      label: Ensure controls with visible labels are selectable/focusable by vocalizing the wording in that label.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: no-unselectable-controls
+    attributes: 
+      label: Say “show numbers” to number the interactive controls on the page. For each control inside the component, make sure you can select it by saying the number (for example,  “choose 5”) and that selecting it makes it behave as expected. Say “scroll down” whenever you need to scroll the page and reveal any hidden controls.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: no-unreachable-fields
+    attributes:
+      label: For components that contain form fields, say “go to next field” to take you to the first input / form field in the component. Keep saying this until you reach the end of the component (use “scroll down” as necessary, to reveal potentially hidden fields). Make sure each field is focused, in the correct order, and that focus indication is obvious.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: no-uneditable-fields
+    attributes:
+      label:  For components that contain form fields, for each field in the component (use ”go to next field” to find them) make sure you can fill it out using the following controls where appropriate. See the list of common commands above. 
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: descriptive-links-controls
+    attributes:
+      label: All the links in the component need to adequately describe where they will take you. Buttons and other controls should adequately describe what they do.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: descriptive-field-labels
+    attributes:
+      label: Form fields have descriptive labels, helping users to avoid errors, supplemented by help text where it assists comprehension.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: textarea
+    id: Notes
+    attributes:
+      label: Notes
+      description: Mitigating circumstances, remediation plans, etc.
+    validations:
+      required: true  
