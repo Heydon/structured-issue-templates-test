@@ -14,56 +14,19 @@ body:
     attributes:
       value: |
         **Instructions:** Read through the component using a screen reader. All elements, not just focusable elements, need to traversed. In Voiceover, this means holding `Control` + `Option` and using the arrow keys.
-
-        ## No unannounced text
-
-        Text nodes and labels visible in the interface are announced by the screen reader.
   - type: dropdown
     id: no-unannounced-text
     attributes:
-      label: Result
+      label: Text nodes and labels visible in the interface are announced by the screen reader.
       options:
         - Passed
         - Failed
     validations:
       required: true
-  - type: markdown
-    attributes:
-      value: |
-        ## No incorrect roles
-
-        For elements that aren’t simply text nodes, an expected role is announced. Some examples:
-
-        * An element that behaves as a button should be announced as “button”.
-        * Elements organized into groups have list and list item roles. Not just bullet lists but other groups such as sets of card components.
-        * On entering a major region of the page, such as the navigation or main content area, this region is identified as a landmark.
-        * On focusing an input within a `<fieldset>`, the group label (usually the `<legend>`) is announced.
-        * An element that is focusable has the correct role for its interactive behavior.
   - type: dropdown
     id: no-incorrect-roles
     attributes:
-      label: Result
-      options:
-        - Passed
-        - Failed
-    validations:
-      required: true
-  - type: markdown
-    attributes:
-      value: |
-        ## No incorrect states
-
-        Where applicable, the correct state is announced, as well as re-announced whenever it changes.
-  - type: markdown
-    attributes:
-      value: |
-        ## No unannounced state changes
-
-        When there is a change in application state that does not move focus, the screen reader user is notified of that change. For example, the content of a new status message should be announced using a live region.
-  - type: dropdown
-    id: no-unannounced-state
-    attributes:
-      label: Result
+      label: For elements that aren’t simply text nodes, an expected role is announced. An element that behaves as a button should be announced as “button”. Elements organized into groups have list and list item roles. On entering a major region of the page, such as the navigation or main content area, this region is identified as a landmark. On focusing an input within a fieldset, the group label (usually the legend) is announced.
       options:
         - Passed
         - Failed
@@ -72,37 +35,34 @@ body:
   - type: dropdown
     id: no-incorrect-states
     attributes:
-      label: Result
+      label: Where applicable, the correct state is announced, as well as re-announced whenever it changes.
       options:
         - Passed
         - Failed
     validations:
       required: true
-  - type: markdown
+  - type: dropdown
+    id: no-unannounced-state
     attributes:
-      value: |
-        ## No silent descriptions
-
-        For example, where an input shows an error message, the message is announced by the screen reader when the input is focused.
+      label: When there is a change in application state that does not move focus, the screen reader user is notified of that change. For example, the content of a new status message should be announced using a live region.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
   - type: dropdown
     id: no-silent-descriptions
     attributes:
-      label: Result
+      label: For example, where an input shows an error message, the message is announced by the screen reader when the input is focused.
       options:
         - Passed
         - Failed
     validations:
       required: true
-  - type: markdown
-    attributes:
-      value: |
-        ## No inappropriate alt
-
-        For images, choose an appropriate alt value. Consult the [alt decision tree](https://www.w3.org/WAI/tutorials/images/decision-tree/) for guidance.
   - type: dropdown
     id: no-inappropriate-alt
     attributes:
-      label: Result
+      label: For images, choose an appropriate alt value. Consult the alt decision tree (https://www.w3.org/WAI/tutorials/images/decision-tree/) for guidance.
       options:
         - Passed
         - Failed
