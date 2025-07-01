@@ -1,7 +1,7 @@
-name: Manual Component Test (Keyboard)
-description: Script for testing the keyboard accessibility of an individual component.
-title: "[Component Name] Keyboard Test"
-labels: ["accessibility", "test", "keyboard"]
+name: Manual Component Test (Screen Reader)
+description: Script for testing the screen reader accessibility of an individual component.
+title: "[Component Name] Screen Reader Test"
+labels: ["accessibility", "test", "screen reader"]
 body: 
   - type: input
     id: url
@@ -13,13 +13,13 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Instructions:** Navigate the component using the keyboard (Tab to move to the next focusable element; Shift + Tab to move to the previous one). For each press of the Tab key, ensure the following criteria are true.
+        **Instructions:** Read through the component using a screen reader. All elements, not just focusable elements, need to traversed. In Voiceover, this means holding `Control` + `Option` and using the arrow keys.
 
-        ## No missed focus
+        ## No unannounced text
 
-        No elements interactive by other means (like a mouse/pointer) are stepped over.
+        Text nodes and labels visible in the interface are announced by the screen reader.
   - type: dropdown
-    id: no-missed-focus
+    id: no-unannounced-text
     attributes:
       label: Result
       options:
@@ -30,11 +30,17 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## No unneeded focus
+        ## No incorrect roles
 
-        No elements that are not intended to be interactive can be focused. 
+        For elements that aren’t simply text nodes, an expected role is announced. Some examples:
+
+        * An element that behaves as a button should be announced as “button”.
+        * Elements organized into groups have list and list item roles. Not just bullet lists but other groups such as sets of card components.
+        * On entering a major region of the page, such as the navigation or main content area, this region is identified as a landmark.
+        * On focusing an input within a `<fieldset>`, the group label (usually the `<legend>`) is announced.
+        * An element that is focusable has the correct role for its interactive behavior.
   - type: dropdown
-    id: no-unneeded-focus
+    id: no-incorrect-roles
     attributes:
       label: Result
       options:
@@ -45,11 +51,26 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## No dead focus
+        ## No incorrect states
 
-        No elements that _should_ be interactive do nothing when activated (Enter and/or Space activation as appropriate).
+        Where applicable, the correct state is announced, as well as re-announced whenever it changes.
+  - type: markdown
+    attributes:
+      value: |
+        ## No unannounced state changes
+
+        When there is a change in application state that does not move focus, the screen reader user is notified of that change. For example, the content of a new status message should be announced using a live region.
   - type: dropdown
-    id: no-dead-focus
+    id: no-unannounced-state
+    attributes:
+      label: Result
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true
+  - type: dropdown
+    id: no-incorrect-states
     attributes:
       label: Result
       options:
@@ -60,11 +81,11 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## No invisible focus
+        ## No silent descriptions
 
-        All visible and focusable controls indicate when they are focused (have a `:focus` CSS style).
+        For example, where an input shows an error message, the message is announced by the screen reader when the input is focused.
   - type: dropdown
-    id: no-invisible-focus
+    id: no-silent-descriptions
     attributes:
       label: Result
       options:
@@ -75,11 +96,11 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## No invisible controls
+        ## No inappropriate alt
 
-        No controls that receive focus are hidden from view. This includes elements for which the `:focus` style is visible but nothing else.
+        For images, choose an appropriate alt value. Consult the [alt decision tree](https://www.w3.org/WAI/tutorials/images/decision-tree/) for guidance.
   - type: dropdown
-    id: no-invisible-controls
+    id: no-inappropriate-alt
     attributes:
       label: Result
       options:
@@ -87,33 +108,4 @@ body:
         - Failed
     validations:
       required: true
-  - type: markdown
-    attributes:
-      value: |
-        ## No trapped focus
-
-        It is possible to move focus outside the component, in both directions, and at all times.
-  - type: dropdown
-    id: no-trapped-focus
-    attributes:
-      label: Result
-      options:
-        - Passed
-        - Failed
-    validations:
-      required: true
-  - type: markdown
-    attributes:
-      value: |
-        ## No illogical order
-
-        Elements receive focus in an order that corresponds logically to their visual position within the component.
-  - type: dropdown
-    id: no-illogical-order
-    attributes:
-      label: Result
-      options:
-        - Passed
-        - Failed
-    validations:
-      required: true
+  
