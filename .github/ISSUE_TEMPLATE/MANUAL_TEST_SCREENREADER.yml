@@ -68,4 +68,13 @@ body:
         - Failed
     validations:
       required: true
-  
+  - type: textarea
+    id: Notes
+    attributes:
+      label: Notes
+      placeholder: Mitigating circumstances, remediation ideas, etc.
+      options:
+        - Passed
+        - Failed
+    validations:
+      required: true  
