@@ -82,8 +82,5 @@ body:
     attributes:
       label: Notes
       description: Mitigating circumstances, remediation plans, etc.
-      options:
-        - Passed
-        - Failed
     validations:
       required: true  
