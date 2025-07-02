@@ -13,14 +13,14 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Instructions:** Read through the component using a screen reader. All elements, not just focusable elements, need to traversed. In Voiceover, this means holding `Control` + `Option` and using the arrow keys.
+        Read through the component using a screen reader. All elements, not just focusable elements, need to traversed. In Voiceover, this means holding `Control` + `Option` and using the arrow keys.
   - type: dropdown
-    id: no-unannounced-text
+    id: no-inappropriate-alt
     attributes:
-      label: Text nodes and labels visible in the interface are announced by the screen reader.
+      label: For images, choose an appropriate alt value. Consult the alt decision tree (https://www.w3.org/WAI/tutorials/images/decision-tree/) for guidance.
       options:
         - Passed
-        - Failed
+        - Failed 1.1.1 (A)
     validations:
       required: true
   - type: dropdown
@@ -29,16 +29,16 @@ body:
       label: For elements that aren’t simply text nodes, an expected role is announced. An element that behaves as a button should be announced as “button”. Elements organized into groups have list and list item roles. On entering a major region of the page, such as the navigation or main content area, this region is identified as a landmark. On focusing an input within a fieldset, the group label (usually the legend) is announced.
       options:
         - Passed
-        - Failed
+        - Failed 4.1.2 (A)
     validations:
       required: true
   - type: dropdown
     id: no-incorrect-states
     attributes:
-      label: Where applicable, the correct state is announced, as well as re-announced whenever it changes.
+      label: The interface control’s correct state is announced, as well as re-announced whenever it changes.
       options:
         - Passed
-        - Failed
+        - Failed 4.1.2 (A)
     validations:
       required: true
   - type: dropdown
@@ -47,31 +47,31 @@ body:
       label: When there is a change in application state that does not move focus, the screen reader user is notified of that change. For example, the content of a new status message should be announced using a live region.
       options:
         - Passed
-        - Failed
+        - Failed 4.1.3 (AA)
+    validations:
+      required: true
+  - type: dropdown
+    id: no-unassociated-labels
+    attributes:
+      label: Inputs have programmatically associated labels. The label is announced when the input is focused.
+      options:
+        - Passed
+        - Failed 1.3.5 (AA)
     validations:
       required: true
   - type: dropdown
     id: no-silent-descriptions
     attributes:
-      label: For example, where an input shows an error message, the message is announced by the screen reader when the input is focused.
+      label: Where an input shows an error message, the message is announced by the screen reader when the input is focused.
       options:
         - Passed
-        - Failed
-    validations:
-      required: true
-  - type: dropdown
-    id: no-inappropriate-alt
-    attributes:
-      label: For images, choose an appropriate alt value. Consult the alt decision tree (https://www.w3.org/WAI/tutorials/images/decision-tree/) for guidance.
-      options:
-        - Passed
-        - Failed
+        - Failed 3.3.2 (A)
     validations:
       required: true
   - type: textarea
     id: Notes
     attributes:
-      label: Notes
-      description: Mitigating circumstances, remediation plans, etc.
+      label: How to fix
+      description: Plans for fixing failed criteria from this test...
     validations:
-      required: true  
+      required: true

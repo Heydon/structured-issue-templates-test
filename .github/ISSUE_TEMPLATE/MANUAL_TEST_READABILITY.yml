@@ -15,21 +15,12 @@ body:
       value: |
         Automated accessibility testing cannot tell you if writing is any good (no, not even using AI). Which means you need to assess you labels and descriptions manually. Good writing is subjective; there’s no right or wrong, but there is better or worse.
   - type: dropdown
-    id: no-unsuitable-alts
-    attributes: 
-      label: Ensure each image’s alternative text fits the purpose of the image. Use the alt decision tree (https://www.w3.org/WAI/tutorials/images/decision-tree/) wherever unsure.
-      options:
-        - Passed
-        - Failed
-    validations:
-      required: true
-  - type: dropdown
     id: no-unhelpful-errors
     attributes:
       label: Make sure each error message actually helps the user overcome the error. Use instructions and examples as appropriate.
       options:
         - Passed
-        - Failed
+        - Failed 3.3.3 (AA)
     validations:
       required: true
   - type: dropdown
@@ -38,7 +29,7 @@ body:
       label: Headings are labels for the sections they introduce. Ensure they adequately set out what is to follow. 
       options:
         - Passed
-        - Failed
+        - Failed 2.4.6 (AA)
     validations:
       required: true
   - type: dropdown
@@ -47,7 +38,7 @@ body:
       label: All the links in the component need to adequately describe where they will take you. Buttons and other controls should adequately describe what they do.
       options:
         - Passed
-        - Failed
+        - Failed 2.4.6 (AA)
     validations:
       required: true
   - type: dropdown
@@ -56,13 +47,22 @@ body:
       label: Form fields have descriptive labels, helping users to avoid errors, supplemented by help text where it assists comprehension.
       options:
         - Passed
-        - Failed
+        - Failed 3.3.2 (A)
+    validations:
+      required: true
+  - type: dropdown
+    id: selectable-by-label
+    attributes: 
+      label: Using voice activation, ensure controls with visible labels are selectable/focusable by vocalizing the wording in that label.
+      options:
+        - Passed
+        - Failed 2.5.3 (A)
     validations:
       required: true
   - type: textarea
     id: Notes
     attributes:
-      label: Notes
-      description: Mitigating circumstances, remediation plans, etc.
+      label: How to fix
+      description: Plans for fixing failed criteria from this test...
     validations:
       required: true  

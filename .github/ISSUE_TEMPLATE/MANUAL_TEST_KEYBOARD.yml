@@ -20,7 +20,7 @@ body:
       label: No elements interactive by other means (like a mouse/pointer) are stepped over.
       options:
         - Passed
-        - Failed
+        - Failed 2.1.1 (A)
     validations:
       required: true
   - type: dropdown
@@ -29,7 +29,7 @@ body:
       label: No elements that are not intended to be interactive can be focused. 
       options:
         - Passed
-        - Failed
+        - Failed 2.4.3 (A)
     validations:
       required: true
   - type: dropdown
@@ -38,7 +38,7 @@ body:
       label: No elements that should be interactive do nothing when activated (Enter and/or Space activation as appropriate).
       options:
         - Passed
-        - Failed
+        - Failed 2.1.1 (A)
     validations:
       required: true
   - type: dropdown
@@ -47,7 +47,7 @@ body:
       label: All visible and focusable controls indicate when they are focused (have a focus CSS style).
       options:
         - Passed
-        - Failed
+        - Failed 2.4.7 (AA)
     validations:
       required: true
   - type: dropdown
@@ -56,7 +56,7 @@ body:
       label: No controls that receive focus are hidden from view. This includes elements for which the focus style is visible but nothing else.
       options:
         - Passed
-        - Failed
+        - Failed 2.4.11 (AA)
     validations:
       required: true
   - type: dropdown
@@ -65,22 +65,31 @@ body:
       label:  It is possible to move focus outside the component, in both directions, and at all times.
       options:
         - Passed
-        - Failed
+        - Failed 2.1.2 (A)
     validations:
       required: true
   - type: dropdown
     id: no-illogical-order
     attributes:
-      label: Elements receive focus in an order that corresponds logically to their visual position within the component.
+      label: Elements receive focus in an order that corresponds logically to their visual position within the component. A closed dialog moves focus back to the element the user was on before the dialog was opened.
       options:
         - Passed
-        - Failed
+        - Failed 2.4.3 (A)
+    validations:
+      required: true
+  - type: dropdown
+    id: no-unmanaged-focus
+    attributes:
+      label: When focus is moved programmatically (by a script) it is to an element with a role and label, such as a button or labeled landmark region. 
+      options:
+        - Passed
+        - Failed 4.1.2 (A)
     validations:
       required: true
   - type: textarea
     id: Notes
     attributes:
-      label: Notes
-      description: Mitigating circumstances, remediation plans, etc.
+      label: How to fix
+      description: Plans for fixing failed criteria from this test...
     validations:
       required: true  
