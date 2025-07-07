@@ -38,7 +38,7 @@ body:
       label: All the links in the component need to adequately describe where they will take you. Buttons and other controls should adequately describe what they do.
       options:
         - Passed
-        - Failed 2.4.6 (AA)
+        - Failed 2.4.4 (A)
     validations:
       required: true
   - type: dropdown
