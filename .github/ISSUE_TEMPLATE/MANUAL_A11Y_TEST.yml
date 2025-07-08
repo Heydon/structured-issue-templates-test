@@ -1,5 +1,5 @@
 name: Manual Accessibility Test
-description: Form for testing component accessibility
+description: A form for testing individual component accessibility
 title: "[Component Name] Manual A11y Test"
 labels: ["accessibility", "manual test"]
 body: 
@@ -136,5 +136,21 @@ body:
     attributes:
       label: Pointer test notes
       description: Observations and suggestions for addressing pointer failures...
+    validations:
+      required: true
+  - type: checkboxes
+    id: hcm-test
+    attributes:
+      label: High Contrast Mode
+      description: | 
+        To activate Windows High Contrast Mode, go to **Settings > Ease Of Access > High Contrast** and choose a theme.
+      options:
+        - label: No content, imagery, or functionality is invisible or otherwise missing.
+        - label: The demarcation of elements remains clear. Buttons retain borders; dividers between sections are intact, etc.
+  - type: textarea
+    id: hcm-notes
+    attributes:
+      label: High Contrast Mode test notes
+      description: Observations and suggestions for addressing High COntrast Mode failures...
     validations:
       required: true
